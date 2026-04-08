@@ -1,6 +1,3 @@
 # Python bytecode
 __pycache__/
 *.pyc
-
-# Output directory
-_out/
