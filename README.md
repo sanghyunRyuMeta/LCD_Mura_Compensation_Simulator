@@ -37,7 +37,6 @@ View and edit the simulator software configuration file (`lxs_para_sim.txt`) for
 - **Image Resizing** — n×k box-averaging downsampler for batch processing camera images (supports PNG, BMP, TIFF, JPEG)
 - **Input Validation** — Automatic camera image naming validation, resolution checks against `H_RES`/`V_RES` in register file, and auto-rename proposals for misnamed files
 - **Config Sync** — GUI parameters (DMR_MODE, PLANE values, OUTPUT_TXT, FBIT_AUTO) are automatically synced to config files before each run
-- **Modern Dark UI** — Neo-Dark themed interface with Meta branding, DPI-aware sizing, and draggable split panes
 
 ---
 
