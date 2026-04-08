@@ -49,7 +49,7 @@ class RunTab:
             orient=tk.VERTICAL,
             sashwidth=6,
             sashrelief=tk.FLAT,
-            bg=Colors.ACCENT_BLUE,
+            bg="#FBBD41",
             opaqueresize=True,
         )
         paned.grid(row=0, column=0, sticky="nsew")
@@ -86,7 +86,7 @@ class RunTab:
             bottom_frame,
             font=ctk.CTkFont(family=Fonts.MONO, size=Fonts.MONO_SIZE),
             fg_color=Colors.CONSOLE_BG,
-            text_color=Colors.TEXT_SECONDARY,
+            text_color=Colors.CONSOLE_TEXT,
             border_color=Colors.CONSOLE_BORDER,
             border_width=Spacing.BORDER_WIDTH,
             corner_radius=Spacing.CORNER_RADIUS_SM,
@@ -181,10 +181,10 @@ class RunTab:
             command=self._on_dmr_mode_change,
             width=80,
             fg_color=Colors.BG_INPUT,
-            button_color=Colors.ACCENT_BLUE,
-            button_hover_color=Colors.ACCENT_BLUE_HOVER,
-            dropdown_fg_color=Colors.BG_CARD,
-            dropdown_hover_color=Colors.BG_CARD_HOVER,
+            button_color="#55534E",
+            button_hover_color="#9F9B93",
+            dropdown_fg_color=Colors.BG_ELEVATED,
+            dropdown_hover_color=Colors.BG_HOVER,
             dropdown_text_color=Colors.TEXT_PRIMARY,
             text_color=Colors.TEXT_PRIMARY,
             font=ctk.CTkFont(family=Fonts.FAMILY, size=Fonts.BODY_SIZE),
@@ -247,10 +247,10 @@ class RunTab:
             values=["TXT (.txt)", "Binary (.bin)"],
             width=140,
             fg_color=Colors.BG_INPUT,
-            button_color=Colors.ACCENT_BLUE,
-            button_hover_color=Colors.ACCENT_BLUE_HOVER,
-            dropdown_fg_color=Colors.BG_CARD,
-            dropdown_hover_color=Colors.BG_CARD_HOVER,
+            button_color="#55534E",
+            button_hover_color="#9F9B93",
+            dropdown_fg_color=Colors.BG_ELEVATED,
+            dropdown_hover_color=Colors.BG_HOVER,
             dropdown_text_color=Colors.TEXT_PRIMARY,
             text_color=Colors.TEXT_PRIMARY,
             font=ctk.CTkFont(family=Fonts.FAMILY, size=Fonts.BODY_SIZE),
@@ -268,10 +268,10 @@ class RunTab:
             values=["Auto", "Manual"],
             width=110,
             fg_color=Colors.BG_INPUT,
-            button_color=Colors.ACCENT_BLUE,
-            button_hover_color=Colors.ACCENT_BLUE_HOVER,
-            dropdown_fg_color=Colors.BG_CARD,
-            dropdown_hover_color=Colors.BG_CARD_HOVER,
+            button_color="#55534E",
+            button_hover_color="#9F9B93",
+            dropdown_fg_color=Colors.BG_ELEVATED,
+            dropdown_hover_color=Colors.BG_HOVER,
             dropdown_text_color=Colors.TEXT_PRIMARY,
             text_color=Colors.TEXT_PRIMARY,
             font=ctk.CTkFont(family=Fonts.FAMILY, size=Fonts.BODY_SIZE),
@@ -353,8 +353,8 @@ class RunTab:
             mode0_frame, text="Mode 0  —  Grayscale Image",
             variable=self.dec_mode, value="0", command=self._on_dec_mode_change,
             font=ctk.CTkFont(family=Fonts.FAMILY, size=Fonts.BODY_SIZE, weight="bold"),
-            text_color=Colors.TEXT_PRIMARY, fg_color=Colors.ACCENT_BLUE,
-            hover_color=Colors.ACCENT_BLUE_HOVER, border_color=Colors.TEXT_MUTED,
+            text_color=Colors.TEXT_PRIMARY, fg_color="#000000",
+            hover_color="#333333", border_color=Colors.BORDER,
         ).pack(anchor="w", padx=Spacing.PAD_MD, pady=Spacing.PAD_SM)
 
         StyledLabel(mode0_frame, text="Uses Gray Levels parameter for grayscale compensation images", style="small",
@@ -368,8 +368,8 @@ class RunTab:
             mode1_frame, text="Mode 1  —  Custom Image",
             variable=self.dec_mode, value="1", command=self._on_dec_mode_change,
             font=ctk.CTkFont(family=Fonts.FAMILY, size=Fonts.BODY_SIZE, weight="bold"),
-            text_color=Colors.TEXT_PRIMARY, fg_color=Colors.ACCENT_BLUE,
-            hover_color=Colors.ACCENT_BLUE_HOVER, border_color=Colors.TEXT_MUTED,
+            text_color=Colors.TEXT_PRIMARY, fg_color="#000000",
+            hover_color="#333333", border_color=Colors.BORDER,
         ).pack(anchor="w", padx=Spacing.PAD_MD, pady=Spacing.PAD_SM)
 
         img_row = ctk.CTkFrame(mode1_frame, fg_color="transparent")
@@ -439,7 +439,7 @@ class RunTab:
         left.pack(side="left")
 
         ctk.CTkLabel(
-            left, text="●", font=ctk.CTkFont(size=8), text_color=Colors.ACCENT_CYAN, width=14,
+            left, text="●", font=ctk.CTkFont(size=8), text_color=Colors.SUCCESS, width=14,
         ).pack(side="left", padx=(0, Spacing.PAD_XS))
 
         StyledLabel(left, text="Console Output", style="title").pack(side="left")

@@ -1,95 +1,104 @@
 """
-Meta Reality Labs — Neo-Dark Theme v3
-LCD Demura Simulator
+Clay Light Mode Theme
+LCD Mura Compensation Simulator
 
-Color philosophy — warm dark tones with clear layering:
+Color philosophy — warm light tones with clear layering:
   ┌──────────────────────────────────────────────────────────┐
-  │  BG_DEEPEST   #0C0C0E  ← Chrome, status bar             │
-  │  BG_PRIMARY   #121215  ← Main canvas                     │
-  │  BG_ELEVATED  #1A1A1F  ← Cards (clearly lifted)          │
-  │  BG_INPUT     #141418  ← Input recessed into card        │
-  │  BG_HOVER     #222228  ← Hover / interactive             │
-  │  BORDER       #27272A  ← Standard borders                │
-  │  BORDER_CARD  #2C2C34  ← Card edges — visible!           │
+  │  BG_DEEPEST   #FFFFFF  ← Header, status bar (pure white) │
+  │  BG_PRIMARY   #FAF9F7  ← Main canvas (Warm Cream)        │
+  │  BG_ELEVATED  #FFFFFF  ← Cards (Pure White)               │
+  │  BG_INPUT     #FAF9F7  ← Input fields (Cream inset)       │
+  │  BG_HOVER     #EEE9DF  ← Hover (Oat Light)                │
+  │  BORDER       #DAD4C8  ← Card edges (Oat Border)          │
   └──────────────────────────────────────────────────────────┘
 
+  Warm undertone (cream/oat) prevents the "sterile white" feel.
+  Cards (white) float above the cream canvas for clear depth.
+
 Typography scale (1.25 ratio):
-  26 → 18 → 15 → 13 → 11
+  26 → 18 → 15 → 13 → 12
+  ↑     ↑     ↑     ↑     ↑
+  H1   H2  Section Body Small
 """
 
 
 class Colors:
-    # ── Layered backgrounds (warm dark) ──
-    BG_DEEPEST = "#0C0C0E"
-    BG_PRIMARY = "#121215"
-    BG_ELEVATED = "#1A1A1F"
-    BG_INPUT = "#141418"
-    BG_HOVER = "#222228"
-    BG_ACTIVE = "#2A2A32"
+    # ── Layered backgrounds (warm light) ──
+    BG_DEEPEST = "#FFFFFF"
+    BG_PRIMARY = "#FAF9F7"
+    BG_ELEVATED = "#FFFFFF"
+    BG_INPUT = "#FAF9F7"
+    BG_HOVER = "#EEE9DF"
+    BG_ACTIVE = "#DAD4C8"
 
-    # Backward-compat aliases
+    # Aliases
     BG_DARKEST = BG_DEEPEST
     BG_DARK = BG_DEEPEST
     BG_SURFACE = BG_ELEVATED
     BG_CARD = BG_ELEVATED
     BG_CARD_HOVER = BG_HOVER
 
-    # ── Accent — vivid blue with glow variants ──
-    ACCENT_BLUE = "#3B82F6"
-    ACCENT_BLUE_HOVER = "#60A5FA"
-    ACCENT_BLUE_DIM = "#2563EB"
-    ACCENT_BLUE_MUTED = "#3B82F618"
-    ACCENT_BLUE_GLOW = "#3B82F630"
+    # ── Accent — Clay Lemon Gold + Matcha ──
+    ACCENT_PRIMARY = "#FBBD41"
+    ACCENT_PRIMARY_HOVER = "#E8A930"
+    ACCENT_PRIMARY_DIM = "#D49A28"
+    ACCENT_PRIMARY_MUTED = "#FBBD4118"
+    ACCENT_PRIMARY_GLOW = "#FBBD4130"
 
-    ACCENT_CYAN = "#2DD4BF"
-    ACCENT_TEAL = "#2DD4BF"
-    ACCENT_PURPLE = "#A78BFA"
-    ACCENT_PURPLE_HOVER = "#C4B5FD"
-    ACCENT_GRADIENT_START = "#3B82F6"
-    ACCENT_GRADIENT_END = "#A78BFA"
+    ACCENT_BLUE = "#FBBD41"
+    ACCENT_BLUE_HOVER = "#E8A930"
+    ACCENT_BLUE_DIM = "#D49A28"
+    ACCENT_BLUE_MUTED = "#FBBD4118"
+    ACCENT_BLUE_GLOW = "#FBBD4130"
 
-    # ── Semantic colors (vivid, modern) ──
-    SUCCESS = "#34D399"
-    SUCCESS_DIM = "#059669"
-    WARNING = "#FBBF24"
-    WARNING_DIM = "#D97706"
-    ERROR = "#F87171"
-    ERROR_DIM = "#DC2626"
+    ACCENT_CYAN = "#078A52"
+    ACCENT_TEAL = "#078A52"
+    ACCENT_PURPLE = "#3BD3FD"
+    ACCENT_PURPLE_HOVER = "#2BC0E8"
 
-    # ── Text hierarchy (high contrast) ──
-    TEXT_PRIMARY = "#F4F4F5"
-    TEXT_SECONDARY = "#A1A1AA"
-    TEXT_MUTED = "#71717A"
-    TEXT_FAINT = "#52525B"
-    TEXT_ACCENT = "#60A5FA"
-    TEXT_ON_ACCENT = "#FFFFFF"
+    # ── Semantic colors ──
+    SUCCESS = "#078A52"
+    SUCCESS_DIM = "#84E7A5"
+    WARNING = "#FBBD41"
+    WARNING_DIM = "#D49A28"
+    ERROR = "#FC7981"
+    ERROR_DIM = "#E5545C"
+    INFO = "#3BD3FD"
 
-    # ── Borders ──
-    BORDER = "#27272A"
-    BORDER_CARD = "#2C2C34"
-    BORDER_SUBTLE = "#1E1E22"
-    BORDER_ACCENT = "#3B82F640"
-    BORDER_INPUT_FOCUS = "#60A5FA"
+    # ── Text hierarchy (high contrast on light) ──
+    TEXT_PRIMARY = "#000000"
+    TEXT_SECONDARY = "#55534E"
+    TEXT_MUTED = "#9F9B93"
+    TEXT_FAINT = "#C4BAB0"
+    TEXT_ACCENT = "#01418D"
+    TEXT_ON_ACCENT = "#000000"
 
-    # ── Buttons ──
-    BTN_PRIMARY = "#3B82F6"
-    BTN_PRIMARY_HOVER = "#60A5FA"
-    BTN_SECONDARY = "#27272A"
-    BTN_SECONDARY_HOVER = "#3F3F46"
-    BTN_DANGER = "#DC2626"
-    BTN_DANGER_HOVER = "#EF4444"
-    BTN_SUCCESS = "#059669"
-    BTN_SUCCESS_HOVER = "#34D399"
+    # ── Borders — Clay Oat ──
+    BORDER = "#DAD4C8"
+    BORDER_CARD = "#EEE9DF"
+    BORDER_SUBTLE = "#EEE9DF"
+    BORDER_ACCENT = "#FBBD4140"
+    BORDER_INPUT_FOCUS = "#FBBD41"
+
+    # ── Buttons — Clay 4 variants ──
+    BTN_PRIMARY = "#000000"
+    BTN_PRIMARY_HOVER = "#333333"
+    BTN_SECONDARY = "#FFFFFF"
+    BTN_SECONDARY_HOVER = "#EEE9DF"
+    BTN_DANGER = "#FC7981"
+    BTN_DANGER_HOVER = "#E5545C"
+    BTN_SUCCESS = "#078A52"
+    BTN_SUCCESS_HOVER = "#84E7A5"
 
     # ── Tabs ──
-    TAB_BG = "#121215"
-    TAB_SELECTED = "#3B82F6"
-    TAB_HOVER = "#27272A"
+    TAB_BG = "#FAF9F7"
+    TAB_SELECTED = "#FBBD41"
+    TAB_HOVER = "#EEE9DF"
 
     # ── Console ──
-    CONSOLE_BG = "#0A0A0C"
-    CONSOLE_BORDER = "#27272A"
-    CONSOLE_TEXT = "#86EFAC"
+    CONSOLE_BG = "#FAF9F7"
+    CONSOLE_BORDER = "#DAD4C8"
+    CONSOLE_TEXT = "#078A52"
 
 
 class Fonts:
@@ -102,7 +111,7 @@ class Fonts:
     SECTION_SIZE = 15
     TITLE_SIZE = 15
     BODY_SIZE = 13
-    SMALL_SIZE = 11
+    SMALL_SIZE = 12
     MONO_SIZE = 12
 
 
@@ -121,11 +130,12 @@ class Spacing:
     WIDGET_GAP = 6
     FORM_LABEL_GAP = 8
 
-    CORNER_RADIUS = 12
-    CORNER_RADIUS_SM = 8
-    CORNER_RADIUS_LG = 16
+    CORNER_RADIUS = 16
+    CORNER_RADIUS_SM = 12
+    CORNER_RADIUS_LG = 20
+    CORNER_RADIUS_INPUT = 10
 
-    BORDER_WIDTH = 1
+    BORDER_WIDTH = 2
     BORDER_WIDTH_ACCENT = 2
 
 
@@ -133,11 +143,13 @@ class Heights:
     """Fixed-height elements — balanced for 1080p."""
     HEADER_BANNER = 64
     STATUS_BAR = 30
+    CONSOLE_TOOLBAR = 38
+    CONSOLE_TEXTBOX = 150
     BUTTON = 36
     INPUT = 34
     EDITOR_TOOLBAR = 42
 
 
-APP_TITLE = "LCD Demura Simulator"
+APP_TITLE = "LCD Mura Compensation Simulator"
 APP_VERSION = "v2.0"
-APP_SUBTITLE = "Meta Reality Labs  ·  LCD Demura Simulator"
+APP_SUBTITLE = "LCD Mura Compensation Simulator"

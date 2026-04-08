@@ -129,7 +129,7 @@ class ResizeTab:
         left.pack(side="left")
         ctk.CTkLabel(
             left, text="●", font=ctk.CTkFont(size=8),
-            text_color=Colors.ACCENT_CYAN, width=14,
+            text_color=Colors.SUCCESS, width=14,
         ).pack(side="left", padx=(0, Spacing.PAD_XS))
         StyledLabel(left, text="Resize Log", style="title").pack(side="left")
 
@@ -142,7 +142,7 @@ class ResizeTab:
             parent,
             font=ctk.CTkFont(family=Fonts.MONO, size=Fonts.MONO_SIZE),
             fg_color=Colors.CONSOLE_BG,
-            text_color=Colors.TEXT_SECONDARY,
+            text_color=Colors.CONSOLE_TEXT,
             border_color=Colors.CONSOLE_BORDER,
             border_width=Spacing.BORDER_WIDTH,
             corner_radius=Spacing.CORNER_RADIUS_SM,

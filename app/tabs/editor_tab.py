@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 
-from app.theme import Colors, Fonts, Spacing
+from app.theme import Colors, Fonts, Spacing, Heights
 from app.widgets import SectionCard, AccentButton, StyledLabel
 
 
@@ -16,11 +16,10 @@ class EditorTab:
         # ── Toolbar ──
         toolbar = ctk.CTkFrame(
             parent,
-            fg_color=Colors.BG_CARD,
-            corner_radius=Spacing.CORNER_RADIUS_SM,
-            border_width=Spacing.BORDER_WIDTH,
-            border_color=Colors.BORDER,
-            height=48,
+            fg_color=Colors.BG_DEEPEST,
+            corner_radius=0,
+            border_width=0,
+            height=Heights.EDITOR_TOOLBAR,
         )
         toolbar.grid(row=0, column=0, sticky="ew", padx=Spacing.PAD_LG, pady=(Spacing.PAD_MD, Spacing.PAD_SM))
         toolbar.pack_propagate(False)

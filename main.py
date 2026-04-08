@@ -1,8 +1,8 @@
-from app.gui import DemuraGUI
+from app.gui import MuraCompGUI
 
 
 def main():
-    app = DemuraGUI()
+    app = MuraCompGUI()
     app.mainloop()
 
 

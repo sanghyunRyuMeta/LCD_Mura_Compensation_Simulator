@@ -1,6 +1,6 @@
 """
-Main GUI window for the LCD Demura Simulator.
-Meta Reality Labs — Neo-Dark Theme v3.
+Main GUI window for the LCD Mura Compensation Simulator.
+Clay Light Mode Theme.
 Auto-sizes to fit 1920×1080 at any DPI scaling.
 """
 
@@ -8,18 +8,15 @@ import os
 
 import customtkinter as ctk
 
-from app.theme import Colors, Fonts, Spacing, APP_TITLE, APP_VERSION, APP_SUBTITLE
+from app.theme import Colors, APP_TITLE, APP_VERSION, APP_SUBTITLE
 from app.config import REG_FILE, PARA_FILE, ICON_ICO
 from app.widgets import HeaderBanner, StatusBar
 from app.tabs.run_tab import RunTab
 from app.tabs.editor_tab import EditorTab
 from app.tabs.resize_tab import ResizeTab
 
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")
 
-
-class DemuraGUI(ctk.CTk):
+class MuraCompGUI(ctk.CTk):
     """Main application window — DPI-aware sizing."""
 
     SCREEN_RATIO_W = 0.58
@@ -29,6 +26,10 @@ class DemuraGUI(ctk.CTk):
 
     def __init__(self):
         super().__init__()
+
+        ctk.set_appearance_mode("light")
+        ctk.set_default_color_theme("blue")
+
         self.title(APP_TITLE)
         self.configure(fg_color=Colors.BG_PRIMARY)
 
@@ -55,7 +56,7 @@ class DemuraGUI(ctk.CTk):
             fg_color=Colors.BG_PRIMARY,
             segmented_button_fg_color=Colors.TAB_BG,
             segmented_button_selected_color=Colors.TAB_SELECTED,
-            segmented_button_selected_hover_color=Colors.ACCENT_BLUE_HOVER,
+            segmented_button_selected_hover_color="#E8A930",
             segmented_button_unselected_color=Colors.TAB_BG,
             segmented_button_unselected_hover_color=Colors.TAB_HOVER,
             text_color=Colors.TEXT_PRIMARY,
@@ -64,13 +65,13 @@ class DemuraGUI(ctk.CTk):
         tabview.grid(row=0, column=0, sticky="nsew")
 
         tabview.add("🔎  Resizing Function")
-        tabview.add("🔬  LCD Demura Simulator")
+        tabview.add("🔬  LCD Mura Compensation Simulator")
         tabview.add("📋  Register Setting")
         tabview.add("⚙  SW Config Setting")
 
         for tab_name in [
             "🔎  Resizing Function",
-            "🔬  LCD Demura Simulator",
+            "🔬  LCD Mura Compensation Simulator",
             "📋  Register Setting",
             "⚙  SW Config Setting",
         ]:
@@ -82,7 +83,7 @@ class DemuraGUI(ctk.CTk):
 
         # ── Build tabs ──
         self.run_tab = RunTab(
-            tabview.tab("🔬  LCD Demura Simulator"), self, self.status_bar,
+            tabview.tab("🔬  LCD Mura Compensation Simulator"), self, self.status_bar,
         )
         self.resize_tab = ResizeTab(
             tabview.tab("🔎  Resizing Function"), self, self.status_bar,
