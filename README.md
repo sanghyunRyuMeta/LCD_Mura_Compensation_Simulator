@@ -2,7 +2,7 @@
 
 **Meta Reality Labs · LCD Mura Compensation Simulator v2.0**
 
-A desktop GUI application for LCD demura (mura compensation) simulation. It provides an end-to-end workflow for encoding and decoding demura compensation data, editing register/config files, and batch-resizing camera images — all within a modern dark-themed interface built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter).
+A desktop GUI application for LCD demura (mura compensation) simulation. It provides an end-to-end workflow for encoding and decoding mura compensation data, editing register/config files, and batch-resizing camera images — interface built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter).
 
 ---
 
