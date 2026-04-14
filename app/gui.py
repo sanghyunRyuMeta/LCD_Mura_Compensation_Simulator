@@ -14,6 +14,7 @@ from app.widgets import HeaderBanner, StatusBar
 from app.tabs.run_tab import RunTab
 from app.tabs.editor_tab import EditorTab
 from app.tabs.resize_tab import ResizeTab
+from app.tabs.dll_tab import DLLTab
 
 
 class MuraCompGUI(ctk.CTk):
@@ -66,12 +67,14 @@ class MuraCompGUI(ctk.CTk):
 
         tabview.add("🔎  Resizing Function")
         tabview.add("🔬  LCD Mura Compensation Simulator")
+        tabview.add("🔧  DLL Mode")
         tabview.add("📋  Register Setting")
         tabview.add("⚙  SW Config Setting")
 
         for tab_name in [
             "🔎  Resizing Function",
             "🔬  LCD Mura Compensation Simulator",
+            "🔧  DLL Mode",
             "📋  Register Setting",
             "⚙  SW Config Setting",
         ]:
@@ -87,6 +90,9 @@ class MuraCompGUI(ctk.CTk):
         )
         self.resize_tab = ResizeTab(
             tabview.tab("🔎  Resizing Function"), self, self.status_bar,
+        )
+        self.dll_tab = DLLTab(
+            tabview.tab("🔧  DLL Mode"), self, self.status_bar,
         )
 
         log_callback = self.run_tab.append_log
