@@ -200,29 +200,35 @@ class DLLTab:
         content = card.get_content_frame()
         content.grid_columnconfigure(0, weight=1)
 
-        StyledLabel(content, text="Output Folder:", style="body").pack(anchor="w", pady=(0, Spacing.PAD_XS))
-        StyledLabel(content, text="Folder for total_crc.bin and LUT.bin output files", style="small").pack(anchor="w")
+        StyledLabel(content, text="Output Bin File Name:", style="body").pack(anchor="w", pady=(0, Spacing.PAD_XS))
+        StyledLabel(content, text="Name for output files (creates {name}.bin and {name}_Total_crc.bin in _out folder)", style="small").pack(anchor="w")
 
         path_frame = ctk.CTkFrame(content, fg_color="transparent")
         path_frame.pack(fill="x", pady=(Spacing.PAD_XS, Spacing.PAD_SM))
         path_frame.grid_columnconfigure(0, weight=1)
 
-        self.output_path_var = ctk.StringVar(value=os.path.join(OUT_DIR, "DLL_output"))
-        self._output_path_entry = StyledEntry(path_frame, textvariable=self.output_path_var)
-        self._output_path_entry.grid(row=0, column=0, sticky="ew", padx=(0, Spacing.PAD_SM))
+        self.output_name_var = ctk.StringVar(value="DLL_output")
+        self._output_name_entry = StyledEntry(path_frame, textvariable=self.output_name_var)
+        self._output_name_entry.grid(row=0, column=0, sticky="ew", padx=(0, Spacing.PAD_SM))
 
+        # Auto-generate name from input folder
         AccentButton(
-            path_frame, text="Browse", style="secondary", icon="📂", width=110,
-            command=self._browse_output_folder,
+            path_frame, text="Auto Name", style="secondary", icon="✨", width=110,
+            command=self._auto_generate_name,
         ).grid(row=0, column=1)
 
-    def _browse_output_folder(self):
-        folder = filedialog.askdirectory(
-            title="Select Output Folder",
-            initialdir=OUT_DIR if os.path.isdir(OUT_DIR) else BASE_DIR,
-        )
-        if folder:
-            self.output_path_var.set(folder)
+    def _auto_generate_name(self):
+        """Auto-generate output name from input folder name and mode."""
+        input_path = self.input_path_var.get().strip()
+        if input_path and os.path.isdir(input_path):
+            panel_name = os.path.basename(input_path)
+            mode = self.dmr_mode_var.get()
+            mode_suffix = {
+                "0": "_RGB2P",
+                "1": "_RGB3P",
+                "2": "_W3P"
+            }.get(mode, "")
+            self.output_name_var.set(f"{panel_name}{mode_suffix}")
 
     # ------------------------------------------------------------------ #
     #  Action Buttons
@@ -272,13 +278,10 @@ class DLLTab:
                      ).pack(side="right")
 
     def _open_out_folder(self):
-        out_path = self.output_path_var.get().strip()
-        if os.path.isdir(out_path):
-            os.startfile(out_path)
-        elif os.path.isdir(OUT_DIR):
+        if os.path.isdir(OUT_DIR):
             os.startfile(OUT_DIR)
         else:
-            messagebox.showwarning("Folder Not Found", f"Output folder does not exist")
+            messagebox.showwarning("Folder Not Found", f"Output folder does not exist:\n{OUT_DIR}")
 
     # ------------------------------------------------------------------ #
     #  Config Loading
@@ -295,7 +298,7 @@ class DLLTab:
     def _validate_inputs(self) -> bool:
         """Validate inputs before running."""
         input_path = self.input_path_var.get().strip()
-        output_path = self.output_path_var.get().strip()
+        output_name = self.output_name_var.get().strip()
 
         if not input_path:
             messagebox.showerror("Missing Input", "Please specify the camera image folder.")
@@ -305,8 +308,8 @@ class DLLTab:
             messagebox.showerror("Invalid Input", f"Camera image folder not found:\n{input_path}")
             return False
 
-        if not output_path:
-            messagebox.showerror("Missing Output", "Please specify the output folder.")
+        if not output_name:
+            messagebox.showerror("Missing Output", "Please specify the output bin file name.")
             return False
 
         return True
@@ -317,7 +320,8 @@ class DLLTab:
             return
 
         input_path = self.input_path_var.get().strip()
-        output_path = self.output_path_var.get().strip()
+        output_name = self.output_name_var.get().strip()
+        output_path = os.path.join(OUT_DIR, output_name)
         dmr_mode = int(self.dmr_mode_var.get())
 
         def _task():
@@ -327,7 +331,7 @@ class DLLTab:
                 self._set_status(f"DLL finished - CRC: {total_crc}", "ready")
                 self._root.after(0, lambda: messagebox.showinfo(
                     "DLL Complete",
-                    f"Demura processing complete!\n\nTotal CRC: {total_crc}\nOutput: {output_path}"
+                    f"Demura processing complete!\n\nTotal CRC: {total_crc}\nOutput: {output_path}.bin"
                 ))
             except Exception as e:
                 self._set_status("DLL error", "error")
