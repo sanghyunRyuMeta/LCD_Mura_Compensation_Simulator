@@ -133,9 +133,9 @@ python main.py
 
 1. **Select Input Folder** — In the *DLL Mode* tab, browse to the folder containing camera images
 2. **Select Demura Mode** — Choose Mode 0 (RGB 2-plane), Mode 1 (RGB 3-plane), or Mode 2 (White 3-plane)
-3. **Select Output Folder** — Choose the destination for output files
+3. **Enter Output Name** — Enter the bin file name (e.g., `J2_W3P`) or click "Auto Name" to generate from input folder
 4. **Run DLL Demura** — Click *Run DLL Demura* to process images and generate LUT binary files
-5. **Output Files** — `<output>.bin` (LUT data) and `<output>_Total_crc.bin` (CRC checksum)
+5. **Output Files** — `_out/{name}.bin` (LUT data) and `_out/{name}_Total_crc.bin` (CRC checksum)
 
 ### Image Resizing
 
